@@ -1,0 +1,48 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Aurora Browser Custom Styles */
+:root {
+  --aurora-primary: #6366f1;
+  --aurora-secondary: #8b5cf6;
+  --aurora-accent: #06b6d4;
+  --aurora-background: #0f172a;
+  --aurora-surface: #1e293b;
+  --aurora-text: #f1f5f9;
+}
+
+body {
+  @apply bg-slate-900 text-slate-100;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-600 rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-500;
+}
+
+/* Aurora glow effects */
+.aurora-glow {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+.aurora-tab {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.aurora-tab:hover {
+  @apply transform -translate-y-0.5;
+}

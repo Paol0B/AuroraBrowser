@@ -1,0 +1,49 @@
+{
+  "name": "aurora-browser",
+  "version": "0.1.0",
+  "description": "Ultra-lightweight desktop browser with privacy-first features",
+  "author": "Paol0B",
+  "main": "src/main/index.js",
+  "homepage": "https://github.com/Paol0B/AuroraBrowser",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:nuxt\" \"npm run dev:electron\"",
+    "dev:nuxt": "cd src/renderer && npm run dev",
+    "dev:electron": "cross-env NODE_ENV=development electron . --no-sandbox",
+    "build": "npm run build:nuxt && npm run build:electron",
+    "build:nuxt": "cd src/renderer && npm run build",
+    "build:electron": "electron-builder",
+    "start": "electron . --no-sandbox",
+    "test": "echo \"Tests will be added in future iterations\"",
+    "postinstall": "cd src/renderer && npm install"
+  },
+  "dependencies": {
+    "electron": "^27.0.0",
+    "electron-store": "^8.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron-builder": "^24.6.4"
+  },
+  "build": {
+    "appId": "com.paol0b.aurora-browser",
+    "productName": "Aurora Browser",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/main/**/*",
+      "src/renderer/dist/**/*",
+      "node_modules/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
